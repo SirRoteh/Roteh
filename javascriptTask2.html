@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Task 2</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //create an undefined array interestData
+      let interestData = [];
+
+      //function accepts values for principal and time to determine the rate and calculate interest
+      function interestCalculator(principal, time) {
+        if (principal >= 2500 && time > 1 && time < 3) {
+          interestData = [principal, time];
+          interestData.push(3);
+        } else if (principal >= 2500 && time >= 3) {
+          interestData = [principal, time];
+          interestData.push(4);
+        } else if (principal < 2500 || time <= 1) {
+          interestData = [principal, time];
+          interestData.push(2);
+        } else {
+          interestData = [principal, time];
+          interestData.push(1);
+        }
+        let product = interestData[0] * interestData[1] * interestData[2];
+        let interest = product / 100;
+
+        interestData.push(interest);
+        dataInfo = {
+          Principal: interestData[0],
+          Time: interestData[1],
+          Rate: interestData[2],
+          Interest: interestData[3],
+        };
+        console.log(dataInfo);
+        return dataInfo;
+      } //function returns a dataInfo object containing key value pairs for principal, time, rate and interest calculated
+
+      //call the interestCalculator() function to parse the values of principal and time given in the task
+      data1 = interestCalculator(2500, 1.8);
+      data2 = interestCalculator(1000, 5);
+      data3 = interestCalculator(3000, 1);
+      data4 = interestCalculator(2000, 3);
+
+      //myDataArray contains the returned array of objects obtained
+      let myDataArray = [data1, data2, data3, data4];
+      console.log(myDataArray);
+    </script>
+  </body>
+</html>
